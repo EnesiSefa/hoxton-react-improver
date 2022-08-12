@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  text-align: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  place-content: center start;
+}
+
+.form {
+  display: grid;
+  justify-content: center;
+  grid-gap: 10px;
+  z-index: 10;
+}
+.form > input:hover {
+  background-color: aqua;
+}
+
+.background-image {
+  width: 100vw;
+  position: absolute;
+  z-index: -1;
+  left: 0px;
+}
+.acc-container {
+  display: grid;
+  place-content: center;
+}
+.acc-list {
+  display: grid;
+  grid-column: auto auto;
+}
+.acc-item {
+  display: grid;
+}
+
+.click-here{
+  place-items: center start;
+}

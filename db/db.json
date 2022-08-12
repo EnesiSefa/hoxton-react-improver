@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullname": "Saul Goodman",
+      "gender": "male",
+      "age": 60,
+      "hobby": " movies and whiskey"
+    },
+    {
+      "id": 2,
+      "fullname": "Kim Wexler",
+      "gender": "female",
+      "age": 50,
+      "hobby": "job"
+    }
+  ]
+}
