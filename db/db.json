@@ -5,12 +5,14 @@
       "fullname": "Saul Goodman",
       "gender": "male",
       "age": 60,
+      "image": "https://static.wikia.nocookie.net/breakingbad/images/4/47/SaulGoodman.jpg/revision/latest/scale-to-width-down/2048?cb=20130828194301",
       "hobby": " movies and whiskey"
     },
     {
       "id": 2,
       "fullname": "Kim Wexler",
       "gender": "female",
+      "image":"https://static.wikia.nocookie.net/breakingbad/images/9/98/S5_Kim.png/revision/latest?cb=20200302224210",
       "age": 50,
       "hobby": "job"
     }

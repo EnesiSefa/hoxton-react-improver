@@ -22,11 +22,19 @@ export default function AddUser() {
           age: Number(event.target.age.value),
           gender: event.target.gender.value,
           hobby: event.target.hobby.value,
+          image:event.target.hobby.value
         };
 
         setUsers([...users, user]);
       }}
     >
+      <label htmlFor="">
+        <input
+          placeholder="paste an image link "
+          type="text"
+          name="image"
+        />
+      </label>
       <label htmlFor="">
         <input
           placeholder="write your full name "
@@ -49,6 +57,9 @@ export default function AddUser() {
         <input placeholder="what's your hobby" type="text" name="hobby" />
       </label>
       <button>create account</button>
+      <h2>
+        to see the users <Link to={"mainpage"}>click here</Link>
+      </h2>
     </form>
   );
 }

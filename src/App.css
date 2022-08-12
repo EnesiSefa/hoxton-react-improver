@@ -9,7 +9,10 @@
   height: 100vh;
   place-content: center start;
 }
+.title{
+  color: burlywood;
 
+}
 .form {
   display: grid;
   justify-content: center;
