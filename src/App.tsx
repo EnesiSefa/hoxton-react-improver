@@ -6,12 +6,7 @@ import MainPage from "./pages/MainPage";
 import { User, Users } from "./types/types";
 
 function App() {
-  const [users, setUsers] = useState<Users>([]);
-  useEffect(() => {
-    fetch("http://localhost:4000/users")
-      .then((response) => response.json())
-      .then((usersFromServer) => setUsers(usersFromServer));
-  }, []);
+  
 
   return (
     <div className="App">

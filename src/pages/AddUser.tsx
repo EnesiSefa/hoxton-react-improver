@@ -5,30 +5,21 @@ import { Users } from "../types/types";
 
 export default function AddUser() {
   const [users, setUsers] = useState<Users>([]);
-  useEffect(() => {
-    fetch("http://localhost:4000/users")
-      .then((response) => response.json())
-      .then((usersFromServer) => setUsers(usersFromServer));
-  }, []);
+
   const [fullname, setFullname] = useState("");
-  const [age, setAge] = useState("");
+  const [age, setAge] = useState(0);
   const [gender, setGender] = useState("");
   const [hobby, setHobby] = useState("");
   const [image, setImage] = useState("");
   //
-  function postData(event) {
+  function postData(userData) {
     fetch("http://localhost:4000/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        fullname: "A superhero",
-        age: 0,
-        image: "",
-        gender: "male",
-        hobby:"hiking",
-          
+        userData,
       }),
     })
       .then((resp) => resp.json())
@@ -41,7 +32,15 @@ export default function AddUser() {
       className="form"
       onSubmit={(event) => {
         event.preventDefault();
-        postData(event)
+
+        let userData = {
+          fullname: event.target.fullname.value,
+          age: event.target.age.valueAsNumber,
+          image: event.target.image.value,
+          gender: event.target.gender.value,
+          hobby: event.target.hobby.value,
+        };
+        postData(userData);
       }}
     >
       <label htmlFor="">
@@ -49,7 +48,7 @@ export default function AddUser() {
           placeholder="paste an image link "
           type="text"
           name="image"
-          onChange={(e) => setImage(e.target.value)}
+          // onChange={(e) => setImage(e.target.value)}
         />
       </label>
       <label htmlFor="">
@@ -57,7 +56,7 @@ export default function AddUser() {
           placeholder="write your full name "
           type="text"
           name="fullname"
-          onChange={(e) => setFullname(e.target.value)}
+          // onChange={(e) => setFullname(e.target.value)}
         />
       </label>
 
@@ -66,7 +65,7 @@ export default function AddUser() {
           placeholder="how young are you?"
           type="text"
           name="age"
-          onChange={(e) => setAge(e.target.value)}
+          // onChange={(e) => setAge(e.target.value)}
         />
       </label>
       <label htmlFor="">
@@ -74,7 +73,7 @@ export default function AddUser() {
           placeholder="write your gender please..."
           type="text"
           name="gender"
-          onChange={(e) => setGender(e.target.value)}
+          // onChange={(e) => setGender(e.target.value)}
         />
       </label>
       <label htmlFor="">
@@ -82,10 +81,10 @@ export default function AddUser() {
           placeholder="what's your hobby"
           type="text"
           name="hobby"
-          onChange={(e) => setHobby(e.target.value)}
+          // onChange={(e) => setHobby(e.target.value)}
         />
       </label>
-      <button onClick={postData}>create account</button>
+      <button>create account</button>
     </form>
   );
 }
