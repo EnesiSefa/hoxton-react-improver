@@ -16,7 +16,7 @@ export default function MainPage() {
             <h3> full name:{user.fullname}</h3>
             <span> Age: {user.age}</span>
             <span> Gender: {user.gender}</span>
-            <img src="" alt="" />
+            <img className="acc-image" src={user.image} alt="" />
             <p>Hobby:{user.hobby}</p>
           </li>
         ))}
