@@ -12,9 +12,10 @@
       "id": 2,
       "fullname": "Kim Wexler",
       "gender": "female",
-      "image":"https://static.wikia.nocookie.net/breakingbad/images/9/98/S5_Kim.png/revision/latest?cb=20200302224210",
+      "image": "https://static.wikia.nocookie.net/breakingbad/images/9/98/S5_Kim.png/revision/latest?cb=20200302224210",
       "age": 50,
       "hobby": "job"
     }
+    
   ]
 }

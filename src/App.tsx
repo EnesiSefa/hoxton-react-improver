@@ -27,7 +27,10 @@ function App() {
         <Route path="/mainpage" element={<MainPage />} />
       </Routes>
       <h2 className="click-here">
-        want to add a user <Link to={"/adduser"}>click here</Link>
+        want to add a user <Link to={"adduser"}>click here</Link>
+      </h2>
+      <h2>
+        to see the users <Link to={"mainpage"}>click here</Link>
       </h2>
      
     </div>

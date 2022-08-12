@@ -39,6 +39,7 @@
 }
 .acc-item {
   display: grid;
+  grid-gap: 20px;
 }
 
 .click-here{

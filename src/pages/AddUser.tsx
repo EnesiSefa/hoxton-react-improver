@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Users } from "../types/types";
@@ -9,6 +10,30 @@ export default function AddUser() {
       .then((response) => response.json())
       .then((usersFromServer) => setUsers(usersFromServer));
   }, []);
+  const [fullname, setFullname] = useState("");
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState("");
+  const [hobby, setHobby] = useState("");
+  const [image, setImage] = useState("");
+  //
+  function postData(event) {
+    fetch("http://localhost:4000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fullname: "A superhero",
+        age: 0,
+        image: "",
+        gender: "male",
+        hobby:"hiking",
+          
+      }),
+    })
+      .then((resp) => resp.json())
+      .then((data) => setUsers(data));
+  }
 
   return (
     <form
@@ -16,16 +41,7 @@ export default function AddUser() {
       className="form"
       onSubmit={(event) => {
         event.preventDefault();
-
-        let user = {
-          fullName: event.target.fullname.value,
-          age: Number(event.target.age.value),
-          gender: event.target.gender.value,
-          hobby: event.target.hobby.value,
-          image:event.target.hobby.value
-        };
-
-        setUsers([...users, user]);
+        postData(event)
       }}
     >
       <label htmlFor="">
@@ -33,6 +49,7 @@ export default function AddUser() {
           placeholder="paste an image link "
           type="text"
           name="image"
+          onChange={(e) => setImage(e.target.value)}
         />
       </label>
       <label htmlFor="">
@@ -40,26 +57,35 @@ export default function AddUser() {
           placeholder="write your full name "
           type="text"
           name="fullname"
+          onChange={(e) => setFullname(e.target.value)}
         />
       </label>
 
       <label htmlFor="">
-        <input placeholder="how young are you?" type="text" name="age" />
+        <input
+          placeholder="how young are you?"
+          type="text"
+          name="age"
+          onChange={(e) => setAge(e.target.value)}
+        />
       </label>
       <label htmlFor="">
         <input
           placeholder="write your gender please..."
           type="text"
           name="gender"
+          onChange={(e) => setGender(e.target.value)}
         />
       </label>
       <label htmlFor="">
-        <input placeholder="what's your hobby" type="text" name="hobby" />
+        <input
+          placeholder="what's your hobby"
+          type="text"
+          name="hobby"
+          onChange={(e) => setHobby(e.target.value)}
+        />
       </label>
-      <button>create account</button>
-      <h2>
-        to see the users <Link to={"mainpage"}>click here</Link>
-      </h2>
+      <button onClick={postData}>create account</button>
     </form>
   );
 }
